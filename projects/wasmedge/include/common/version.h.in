@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: Apache-2.0
+//===-- wasmedge/common/version.h - Version information -------------------===//
+//
+// Part of the WasmEdge Project.
+//
+//===----------------------------------------------------------------------===//
+///
+/// \file
+/// This file contains version information that passed from configure stage.
+///
+//===----------------------------------------------------------------------===//
+#pragma once
+
+#include <string_view>
+
+namespace WasmEdge {
+
+using namespace std::literals::string_view_literals;
+
+#cmakedefine CPACK_PACKAGE_VERSION "@CPACK_PACKAGE_VERSION@"sv
+static inline std::string_view kVersionString [[maybe_unused]] =
+    CPACK_PACKAGE_VERSION;
+#undef CPACK_PACKAGE_VERSION
+
+} // namespace WasmEdge
